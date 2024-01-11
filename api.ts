@@ -1,4 +1,6 @@
-export const request = (value) => {
+import { Country } from "./types"
+
+export const request = (value: string): Promise<Country[]> => {
     return fetch(`https://restcountries.com/v3.1/name/${value}`, {
             method: "GET",
             mode: "cors",
@@ -13,7 +15,7 @@ export const request = (value) => {
             if (!response.ok) {
                 return Promise.reject('error')
             }
-            return response.json()
+            return response.json() as Promise<Country[]>
         }, (reason) => {
             return Promise.reject(reason)
         })
