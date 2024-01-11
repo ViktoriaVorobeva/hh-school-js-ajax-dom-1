@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Country Finder</title>
+</head>
+
+<body>
+    <section class="country">
+        <div>
+            <label for="search"></label>
+            <input class="search" name="search" id="search" type="search" placeholder="Find the country..."
+                autocomplete="off">
+            <ul class="suggest"></ul>
+        </div>
+        <div class="result">
+            <h2 class="result__title">Результат запроса</h2>
+            <div class="result__wrapper">
+                <h3>Название страны:</h3>
+                <p class="result__name"></p>
+            </div>
+            <div class="result__wrapper">
+                <h3>Столица:</h3>
+                <p class="result__capital"></p>
+            </div>
+            <div class="result__wrapper">
+                <h3>Официальные языки:</h3>
+                <ul class="result__languages"></ul>
+            </div>
+            <div class="result__wrapper">
+                <h3>Валюта:</h3>
+                <ul class="result__currencies"></ul>
+            </div>
+            <div class="result__wrapper">
+                <h3>Флаг:</h3>
+                <img class="result__flag" src="" alt="">
+            </div>
+        </div>
+        <div class="history">
+            <h3>Предыдущие поиски:</h3>
+            <ul class="history__list"></ul>
+        </div>
+    </section>
+    <!-- <script type="module" src="/src/main.tsx"></script> -->
+    <script type="module" src="./index.js"></script>
+</body>
+
+</html>
