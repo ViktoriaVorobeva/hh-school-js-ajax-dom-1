@@ -1,14 +1,22 @@
 import { Country } from "./types";
 
 const saveResultInLocalStorage = (key: string, data: unknown[]) => {
-    localStorage.setItem(key, JSON.stringify(data));
+    try {
+        localStorage.setItem(key, JSON.stringify(data));
+    } catch {
+        localStorage.clear()
+    }
 }
 
 const getResultFromLocalStorage = (key: string) => {
     const value = localStorage.getItem(key);
 
     if (value !== null) {
-        return JSON.parse(value) as Country[];
+        try {
+            return JSON.parse(value) as Country[];
+        } catch {
+            return []
+        }
     }
     return [];
 }

@@ -13,10 +13,12 @@ export const request = (value: string): Promise<Country[]> => {
         })
         .then((response) => {
             if (!response.ok) {
-                return Promise.reject('error')
+                return Promise.reject(response)
             }
             return response.json() as Promise<Country[]>
-        }, (reason) => {
-            return Promise.reject(reason)
-        })
+        }, 
+        // (reason) => {
+        //     return Promise.reject(reason)
+        // }
+        )
 }
