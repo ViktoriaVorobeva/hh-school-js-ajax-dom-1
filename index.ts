@@ -122,10 +122,7 @@ const inputHandler = async (e: Event) => {
   if (e.target && e.target instanceof HTMLInputElement) {
     let countriesList: Country[] = [];
     try {
-      const countriesRequest = await request(e.target.value);
-      countriesList = countriesRequest;
-      saveResultInLocalStorage("currentRequests", countriesList);
-      generateSuggestList(countriesList);
+      countriesList = await request(e.target.value);
     } catch (e) {
       const listElement = document.createElement("li");
       if (!e.statusText) {
@@ -137,6 +134,10 @@ const inputHandler = async (e: Event) => {
       listElement.classList.add("suggest__item");
       suggest.append(listElement);
       suggest.classList.add("active");
+    }
+    if (countriesList.length !== 0) {
+      saveResultInLocalStorage("currentRequests", countriesList);
+      generateSuggestList(countriesList);
     }
   }
 };
